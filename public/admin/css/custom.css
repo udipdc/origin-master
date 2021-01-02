@@ -1,0 +1,68 @@
+img.preview-img, img.logo-preview-img{
+    width: 100px;
+    max-width: 150px;
+    margin-top: 15px;
+}
+
+span.remove{
+    cursor: pointer;
+}
+
+[data-nav-headerbg="color_1"] .nav-header {
+	background-color : aliceblue !important;
+}
+
+
+input[type="checkbox"]:after {
+    border: 1px solid #000000 !important;
+}
+
+.dataTables_filter input {
+  border: 1px solid !important;
+  height: 25px !important;
+}
+
+.form-control:focus:{
+   border-color: #000000 !important;
+}
+
+.dataTables_length select {
+	border: 1px solid !important;
+	height: 30px !important;
+}
+
+.fa-file-pdf-o:before{
+    color: red !important;
+}
+
+.fa{
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+body{
+    font-family: 'Open Sans', sans-serif !important;
+}
+.nk-sidebar .metismenu a{
+  padding: 0.8125rem .6125rem;
+}
+
+.dropdown-content-body .admin-drop-link{
+    transition: all 0.4s ease-in-out;
+    color: #76838f !important;
+    font-size: 0.875rem;
+}
+
+.show.menu-toggle .metismenu.in li{
+  text-align: center; 
+}
+
+/*.userTable td{
+  white-space: nowrap;
+}*/
+
+.rounded-circle{
+    width: 30% !important;
+    height: 30% !important;
+}
+

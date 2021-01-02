@@ -1,0 +1,21 @@
+body{
+    font-family: 'Open Sans', sans-serif !important;
+}
+
+.typefooter-3 { background: none;  }
+
+/* .common-home .container-megamenu.horizontal ul.megamenu > li.home > a */
+.common-home.container-megamenu.horizontal ul.megamenu{
+    background-color: #fff !important;
+    color: #282828 !important;
+}
+
+ul.megamenu{
+	margin-left: 8% !important;
+	margin-top: 3% !important;
+}
+
+.company_submenu{
+	width: 43% !important;
+}
+

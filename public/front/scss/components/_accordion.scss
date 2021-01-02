@@ -1,0 +1,117 @@
+.accordion {
+  
+    .card-head{
+      background-color: $accordion-head;
+      border-radius: 4px !important;
+      @media (max-width: 300px){
+        padding: 12px !important;
+      }
+      h6{
+        color: $color-primary-active !important;
+      }
+      &.selected{
+        background-color: $color-primary-4 !important;
+        img{
+          display: block;
+        }
+        h6{
+          color: #fff !important;
+          font-weight: 600;
+     
+          background: url(../images/TickMark.svg) no-repeat calc(100% - 10px) center;
+          background-size: contain !important; 
+          &.collapsed {
+        
+            background: url(../images/TickMark.svg) no-repeat calc(100% - 10px) center;
+          }
+        }
+      }
+     
+    }
+    .card {
+      border: none;
+      overflow: visible !important;
+      overflow-y: visible !important;
+      .offset-lg-8{
+        @media (min-width:992px) {
+          margin-left: 0%;
+          margin-right: 66.66667% !important;
+          
+        }
+        
+      }
+      .offset-md-6{
+        @media (min-width:768px) {
+          margin-left: 0%;
+          margin-right: 50% ;
+          
+        }
+        
+      }
+      .offset-lg-4{
+        @media (min-width:992px) {
+          margin-left: 0%;
+          margin-right: 33.33333% !important;
+          &-lg-eduction{
+            margin-right: 22.33333% !important;
+          }
+          &-lg-work{
+            margin-right: 34% !important;
+          }
+
+        }
+      }
+      .offset-md-4{
+        @media (min-width:768px) {
+          margin-left: 0%;
+          margin-right: 33.73333% ;
+         
+        }
+      }
+      .offset-md-3{
+        @media (min-width:768px) {
+          margin-left: 0%;
+        margin-right: 25% ;
+        &-md-eduction{
+          margin-right: 14% ;
+        }
+        }
+        @media (max-width:576px) {
+          margin-left: 0 ;
+          margin-right: 0 ;
+        }
+      }
+      h6 {
+        background: url(../images/down-Arrow.svg) no-repeat calc(100% - 10px) center;
+        @media (max-width:300px) {
+          background: url(../images/down-Arrow.svg)  no-repeat calc(100%);
+        }
+        cursor: pointer;
+        @media (max-width: 300px){
+          font-size: 12px !important;
+         
+        }
+      
+        &.collapsed {
+          background: url(../images/rightarrow.svg) no-repeat calc(100% - 10px) center;
+        }
+      }
+      &-body {
+        padding: 0px !important;
+        padding-top: 20px !important;
+      }
+    }
+  }
+.col-md-4{
+  padding: 0;
+}
+
+a{
+  &:hover{
+    color: $color-primary-2;
+  }
+}
+
+img{
+  padding-left: 10px;
+}

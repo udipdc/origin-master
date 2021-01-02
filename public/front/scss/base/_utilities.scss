@@ -1,0 +1,146 @@
+
+.p{
+    
+    &-p-10{
+        padding:10px;
+    }
+    &-p-20{
+        padding: 20px;
+    }
+    &-pb-10{
+        padding-bottom:10px;
+    }
+    &-pr-10{
+        padding-right: 10px;
+    }
+    &-pt-10{
+        padding-top:10px;
+    }
+    &-pr-20{
+        padding-right: 20px !important;
+        @media (max-width:400px) {
+            padding-right: 16px !important;   
+        }
+    }
+    &-pr-30{
+        padding-right: 30px !important;
+    }
+    &-pl-30{
+        padding-left: 30px !important;
+    }
+    &-px-10{
+        padding:0px 10px !important;
+    }
+    &-py-20{
+        padding:20px 0px ;
+    }
+    &-pb-20{
+        padding-bottom:20px  !important;
+        
+    }
+    &-pt-20{
+        padding-top: 20px !important;
+    }
+    &-p-30{
+        padding: 30px !important;
+        @media (max-width:575px) {
+            padding: 24px !important;
+        }
+    }
+    &-pt-30{
+        padding-top: 30px;
+    }
+    &-px-40{
+        padding: 0 40px;
+    }
+    
+    &-py-40{
+        padding: 40px 0;
+    }
+    &-p-40{  
+        padding:40px;
+        @media (max-width:575px) {
+            padding: 20px;
+            }
+    }
+}
+
+.m{
+    &-m-10{
+        margin: 10px;
+    }
+    &-m-20{
+        margin: 10px;
+    }
+    &-m-30{
+        margin: 10px;
+    }
+    &-mr-10{
+        margin-right: 10px;
+    }
+    &-mr-20{
+        margin-right: 20px !important;
+    }
+    &-mt-10{
+        margin-top: 10px;
+    }
+    &-mt-20{
+        margin-top: 20px;
+    }
+    &-mt-30{
+        margin-top: 30px;
+    }
+    &-mt-32{
+        margin-top: 32px !important;
+    }
+    &-mb-10{
+        margin-bottom: 10px;
+    }
+    &-mb-20{
+        margin-bottom: 20px;
+    }&-mb-30{
+        margin-top: 30px;
+    }
+    &-my-30{
+        margin: 30px 0px !important;
+    }
+}
+.mt-40{
+
+    margin-top: 40px;
+}
+
+
+
+.tabs-menu{
+    .container{
+    box-shadow: 0px 6px 15px #0000000F;    
+    border-radius: 5px !important;
+    max-width: 844px ;
+    
+    
+    @media (max-width:991px) {
+        max-width: 720px;
+        
+    }
+
+    @media (max-width:767px) {
+        max-width: 540px;
+       
+        
+    }
+
+    @media (max-width:575px) {
+        max-width: 95%;
+    }
+
+    
+    @media (max-width:450px){
+        .col-12{
+            padding: 0 4px !important;
+        }
+
+    }
+        
+    }
+}
