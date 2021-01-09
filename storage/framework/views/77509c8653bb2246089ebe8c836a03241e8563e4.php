@@ -25,7 +25,7 @@
                     <div class="card login-form mb-0">
                         <div class="card-body pt-5">
                             <div class="text-center"> 
-                                <a href="<?php echo e(route('admin.login')); ?>"><img src="<?php echo e(asset('front/images/Logo/userImage.png')); ?>" class="rounded-circle" alt=""></a>
+                                <a href="<?php echo e(route('admin.login')); ?>"><img src="<?php echo e(asset('front/images/Logo/userImage.png')); ?>" class="rounded-circle userImage" alt=""></a>
                             </div>
                         
                             <form id="adminLoginForm" action="<?php echo e(route('admin.login')); ?>" method="post" class="mt-5 mb-5">
@@ -44,25 +44,6 @@
                                         <span class="input-group-append">
                                             <span toggle="#password" class="input-group-text toggle-password"><i class="fa fa-eye"></i></span>
                                         </span>
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <div class="form-check">
-                                            <label class="form-check-label" for="remember">
-                                                <input class="form-check-input" type="checkbox" name="remember" id="remember" <?php echo e(old('remember') ? 'checked' : ''); ?>>
-                                                <?php echo e(__('Remember Me')); ?>
-
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <?php if(Route::has('password.request')): ?>
-                                            <a class="btn-link float-right" href="<?php echo e(route('admin.password.request')); ?>">
-                                                <?php echo e(__('Forgot Your Password?')); ?>
-
-                                            </a>
-                                        <?php endif; ?>
                                     </div>
                                 </div>
                                 <button class="btn login-form__btn submit w-100">Sign In</button>

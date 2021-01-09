@@ -3,11 +3,11 @@
 ***********************************-->
 <div class="nav-header">
     <div class="brand-logo">
-        <a href="index.html">
-            <b class="logo-abbr"><img src="<?php echo e(asset('admin/images/logo.png')); ?>" alt=""> </b>
-            <span class="logo-compact"><img src="<?php echo e(asset('admin/images/logo-compact.png')); ?>" alt=""></span>
+        <a href="<?php echo e(route('admin.dashboard')); ?>">
+            <b class="logo-abbr"><img src="<?php echo e(asset('admin/images/admin-small-logo.jpg')); ?>" alt=""> </b>
+            <span class="logo-compact"><img src="<?php echo e(asset('front/images/Logo/userImage.png')); ?>" alt=""></span>
             <span class="brand-title">
-                <img src="<?php echo e(asset('front/images/Logo/userImage.png')); ?>" alt="">
+                <img src="<?php echo e(asset('front/images/Logo/userImage.png')); ?>" class="userImage" alt="">
             </span>
         </a>
     </div>

@@ -76,22 +76,6 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         //dd("create");exit();
-        /*return User::create([
-            'firstname' => $data['firstname'],
-            'lastname' => $data['lastname'],
-            'email' => $data['email'],
-            'username' => $data['username'],
-            'dob' =>  date('Y-m-d', strtotime(str_replace('/', '-', $data['dob']))),
-            'password' => Hash::make($data['password']),
-        ]);*/
-
-        //$user->syncRoles($request->input('roles'));
-
-        //echo "<pre>"; print_r(User::syncRoles('Nurse'));exit();
-
-        /*$date_format = str_replace('/', '-', $data['dob']);
-        $date_store = date('Y-m-d', strtotime($data['dob']));
-        dd($data['dob'], $date_format, $date_store);exit();*/
 
         //dd("create");exit();
         $user = User::create([

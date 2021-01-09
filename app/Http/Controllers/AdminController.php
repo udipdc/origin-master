@@ -172,7 +172,6 @@ class AdminController extends Controller
             //echo "Recruiter";exit();
             $role="Recruiter";
             $notificationCount = Notification::where('requriter_show', '0')->where('requriter_id', Auth::user()->id)->where('deleted_at', NULL)->count();
-            //$notificationData = Notification::where('requriter_id', Auth::user()->id)->where('deleted_at', NULL)->orderBy('id', 'DESC')->get();
             $notificationData = Notification::where('requriter_show', '0')->where('requriter_id', Auth::user()->id)->where('deleted_at', NULL)->orderBy('id', 'DESC')->get();
         }
         elseif($roleName=="Admin")
@@ -180,7 +179,6 @@ class AdminController extends Controller
             //echo "Admin";exit();
             $role="Admin";
             $notificationCount = Notification::where('requriter_id', NULL)->where('admin_show', '0')->where('deleted_at', NULL)->count();
-            //$notificationData = Notification::where('requriter_id', NULL)->where('deleted_at', NULL)->orderBy('id', 'DESC')->get();
             $notificationData = Notification::where('admin_show', '0')->where('requriter_id', NULL)->where('deleted_at', NULL)->orderBy('id', 'DESC')->get();
         }
 
@@ -193,51 +191,6 @@ class AdminController extends Controller
         //dd($id);exit();
         //$id = Crypt::decryptString($id);
         //dd($id);exit();
-
-
-        /*$NotificationData = Notification::where('id', $id)->first();
-        $roleNameCheck = Auth::user()->roles->pluck('name')->toArray();
-        $roleName = $roleNameCheck[0];
-        if($roleName=="Recruiter")
-        {
-            Notification::where('id', $id)->where('requriter_id', $NotificationData->requriter_id)->update([
-                'requriter_show' => '1'
-            ]);
-        }
-        elseif($roleName=="Admin")
-        {
-            Notification::where('id', $id)->update([
-                'admin_show' => '1'
-            ]);
-        }
-        $jobData = '';
-        $jobData = JobApplication::where('id', $NotificationData->job_app_id)->first();
-        $states = State::get();
-        $certifications = Certification::where('status',1)->get();
-        $specialities = Speciality::where('status',1)->get();
-        $questions = Question::where('status',1)->get();
-        return view('admin.jobApplication.add_edit')->with(['states' => $states,'jobData' => $jobData,'certifications' => $certifications,'specialities' => $specialities,'questions' => $questions]);*/
-
-
-        $NotificationData = Notification::where('id', $id)->first();
-        $roleNameCheck = Auth::user()->roles->pluck('name')->toArray();
-        $roleName = $roleNameCheck[0];
-        if($roleName=="Recruiter")
-        {
-            Notification::where('id', $id)->where('requriter_id', $NotificationData->requriter_id)->update([
-                'requriter_show' => '1'
-            ]);
-        }
-        elseif($roleName=="Admin")
-        {
-            Notification::where('id', $id)->update([
-                'admin_show' => '1'
-            ]);
-        }
-        $email = $NotificationData->jobApplication->email;
-        //echo $email;exit();
-        return redirect()->route('jobApplication.edit', Crypt::encryptString($email));
-
     }
 
     public function notificationList(Request $request)
@@ -261,11 +214,6 @@ class AdminController extends Controller
         }
         //echo "<pre>"; print_r($notificationData);exit();
 
-        /*foreach($notificationData as $key => $value)
-        {
-            dd($value->JobApplication->email);
-        }*/
-
         return Datatables::of($notificationData)->addIndexColumn()
         ->addColumn('type', function ($row)
         {
@@ -284,17 +232,11 @@ class AdminController extends Controller
             $btn = '';
             if($row->type_notification=="complete_jobApplication")
             {
-                /*$jobAppId = $row->job_app_id;
-                $job = JobApplication::where('id', $jobAppId)->first();
-                $nurseEmail = $job->email;*/
-
                 //var_dump($row->JobApplication->email);exit();
                 if(isset($row->JobApplication->email))
                 {
                     $btn .= '<a href="' . route('jobApplication.edit', Crypt::encryptString($row->JobApplication->email)) . '" data-toggle="tooltip" data-placement="top" title="Edit" class="edit"><i class="fa fa-eye" aria-hidden="true"></i></a>';
                 }
-
-                //$btn .= '<a href="' . route('jobApplication.edit', Crypt::encryptString($row->JobApplication->email)) . '" data-toggle="tooltip" data-placement="top" title="Edit" class="edit"><i class="fa fa-eye" aria-hidden="true"></i></a>';
             }
             return $btn;
         })->rawColumns(['name', 'action'])

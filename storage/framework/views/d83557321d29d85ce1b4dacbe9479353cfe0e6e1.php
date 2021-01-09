@@ -23,12 +23,18 @@
 
             <li class="<?php echo activeMenuLink('gallery.index,gallery.create'); ?>">
                 <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                    <i class="fa fa-certificate menu-icon"></i><span class="nav-text">Gallery</span>
+                    <i class="fa fa-image menu-icon"></i><span class="nav-text">Gallery</span>
                 </a>
                 <ul class="<?php echo activeLinkMenuOpen('gallery.index,gallery.create'); ?>" aria-expanded="false">
                     <li class="<?php echo activeMenuLink('gallery.index'); ?>"><a class="nav-text" href="<?php echo e(route('gallery.index')); ?>"> <i class="fa fa-eye"></i>View Gallery</a></li>
                     <li class="<?php echo activeMenuLink('gallery.create'); ?>"><a class="nav-text" href="<?php echo e(route('gallery.create')); ?>"> <i class="fa fa-plus"></i>Add Gallery</a></li>
                 </ul>
+            </li>
+
+            <li>
+                <a class="" href="<?php echo e(route('blog.contactChange')); ?>" aria-expanded="false">
+                    <i class="fa fa-user"></i><span class="nav-text">ContactUs Image</span>
+                </a>
             </li>
 
         </ul>

@@ -30,12 +30,7 @@
     ***********************************-->
     <div class="footer">
         <div class="copyright">
-            @if(isset(settingData()->footer_text) && !empty(settingData()->footer_text))
-                <p> {{ settingData()->footer_text }} </p>
-            @else
-                <p>Copyright &copy; Reserved by <a href="https://themeforest.net/user/quixlab">MedicalLogo</a> 2020</p>
-            @endif
-
+            <p>Develop by <a href="#">Pratapbhai Bharad</a> 2021</p>
         </div>
     </div>
     <!--**********************************

@@ -12,7 +12,8 @@ use Illuminate\Support\Facades\Crypt;
 
 use Illuminate\Support\Facades\Auth;
 Use App\User;
-use App\Product;
+use App\Gallery;
+use App\Blog;
 
 class HomeController extends Controller
 {
@@ -85,34 +86,41 @@ class HomeController extends Controller
         return view('index')->with(['states' => $states,'jobData' => $jobData,'certifications' => $certifications,'specialities' => $specialities,'questions' => $questions, 'recruiter_email'=>$recruiter_email, 'recruiter_id'=>$recruiter_id]);
     }
 
-    public function thankyou()
+    public function homePage(Request $request)
     {
-        return view('thankyou');
-    }
-
-    public function ApplicationSuccess()
-    {
-        if(Auth::user()!=null || Auth::user()!="")
-        {
-            //dd("login.");
-            //return view('thankyou');
-
-            $msg = "You have already submited your job application at MedicalStore.";
-            return redirect('thankyou')->with(['msg' => $msg]);
-        }
-        else
-        {
-            //dd("without login.");
-            return view('thankyou_withoutRegister');
-        }
+        return view('welcome');
     }
 
     public function welcomeData(Request $request)
     {
         //dd("welcomeData");
+        return view('welcome');
+    }
 
-        $productList = Product::latest()->orderBy('updated_at', 'DESC')->get();
-        return view('welcome')->with(['productList' => $productList]);
+    public function aboutUsPage(Request $request)
+    {
+        //dd("aboutUs");
+        return view('about-me');
+    }
+
+    public function galleryPage(Request $request)
+    {
+        //$userImages = Gallery::orderBy('id', 'DESC')->paginate(4);
+        $userImages = Gallery::orderBy('id', 'DESC')->simplePaginate(9);
+        return view('gallery', compact('userImages'));
+    }
+
+    public function blogPage(Request $request)
+    {
+        $blogImages = Blog::orderBy('id', 'DESC')->simplePaginate(6);
+        return view('blog', compact('blogImages'));
+    }
+
+    public function contactUsPage(Request $request)
+    {
+        $userData = User::select('id', 'email', 'username', 'contact_image')->where('id',1)->first();
+        //echo "<pre>"; print_r($userData); exit();
+        return view('contact-us', compact('userData'));
     }
 
 }

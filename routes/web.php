@@ -90,9 +90,6 @@ Route::get('classSeeder/{className}', function ($className) {
 	Route::get('admin/password/reset', 'Auth\ForgotPasswordController@showAdminLinkRequestForm')->name('admin.password.request');
 /************ 	 Front Login Routes End 	*********** */
 
-	Route::get('ApplicationSuccess', 'HomeController@ApplicationSuccess')->name('ApplicationSuccess');
-
-
 /*********** 	Admin Login Routes Start 	  *************/
 	Route::get('admin', 'Auth\LoginController@showAdminLoginForm')->name('admin.login');
 	Route::get('admin/login', 'Auth\LoginController@showAdminLoginForm');
@@ -146,10 +143,20 @@ Route::group(['middleware' => ['auth:admin','role:Admin']], function () {
 	Route::patch('admin/gallery/{id}/update', 'GalleryController@update')->name('gallery.update');
 	Route::post('admin/gallery/delete', 'GalleryController@delete')->name('gallery.delete');
 	Route::post('admin/gallery/getgallery', 'GalleryController@getgallery')->name('gallery.getgallery');
-	Route::post('admin/gallery/status_change', 'GalleryController@status_change')->name('gallery.status');
+	Route::post('admin/gallery/image_status_change', 'GalleryController@image_status_change')->name('gallery.status');
 
+	/*start front contactUs image change.*/
+		Route::get('admin/blog/contact_change', 'BlogController@ContactChange')->name('blog.contactChange');
+		Route::patch('admin/blog/contact_image_change', 'BlogController@contact_image_change')->name('blog.contactImage');
+	/*end front contactUs image change.*/
 
 });
 
 Route::get('blogList', 'BlogController@blogList');
 Route::get('blogDetails/{id}', 'BlogController@blogDetails');
+
+Route::get('home', 'HomeController@homePage')->name('home');
+Route::get('about-us', 'HomeController@aboutUsPage')->name('aboutUs');
+Route::get('gallery', 'HomeController@galleryPage')->name('gallery');
+Route::get('blog', 'HomeController@blogPage')->name('blog');
+Route::get('contact-us', 'HomeController@contactUsPage')->name('contactUs');

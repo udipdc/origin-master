@@ -2,71 +2,232 @@
 
 @section('content')
 
+    <!-- {{ asset('front/images/loader.gif') }} -->
+    <!-- asset('front/images/') -->
 
-         <!-- Main Container  -->
-         <div class="main-container">
-            <div id="content">
-               <div class="container">
-                  <div class="box-content1">
-                     <div class="module sohomepage-slider ">
-                       <div class="yt-content-slider" data-rtl="yes" data-autoplay="no" data-autoheight="no" data-delay="4" data-speed="0.6" data-margin="0" data-items_column00="1" data-items_column0="1" data-items_column1="1" data-items_column2="1"  data-items_column3="1" data-items_column4="1" data-arrows="yes" data-pagination="no" data-lazyload="no" data-loop="no" data-hoverpause="yes">
-                           <div class="yt-content-slide">
-                               <a href="#"><img src="image/catalog/slideshow/arseny-togulev-DE6rYp1nAho-unsplash.jpg" alt="slider1" class="img-responsive"></a>
-                           </div>
-                           <div class="yt-content-slide">
-                               <a href="#"><img src="image/catalog/slideshow/hush-naidoo-yo01Z-9HQAw-unsplash.jpg" alt="slider2" class="img-responsive"></a>
-                           </div>
-                           <div class="yt-content-slide">
-                               <a href="#"><img src="image/catalog/slideshow/marcel-scholte-LPurJnihmQI-unsplash.jpg" alt="slider2" class="img-responsive"></a>
-                           </div>
-                           <!-- <div class="yt-content-slide">
-                               <a href="#"><img src="image/catalog/slideshow/home3/slide3.jpg" alt="slider3" class="img-responsive"></a>
-                           </div> -->
-                       </div>
-                       <div class="loadeding"></div>
-                     </div>
-                  </div>
-               </div>
-               <div class="row-cates">
-                  <!-- So categories -->
-                  <div id="so_categories_31" class="so-categories module theme3 slider-cates container preset01-5 preset02-4 preset03-3 preset04-2 preset05-1">
-                     <div class="pre_text">
-                        Top featured collections           
-                     </div>
-                     <h3 class="modtitle"><span>Collections of blog</span></h3>
-                     <div class="modcontent">
-                        <div class="cat-wrap theme3">
-                           @foreach($productList as $product)
-                              <div class="content-box">
-                                 <div class="image-cat">
-                                    <a href="#"><img src="{{ url('product/'.$product->product_image) }}" alt="image" width="208" height="243" /></a>
-                                 </div>
-                                 <br>
-                                 <div class="cat-title">
-                                    <a href="#" style="font-weight: 400;">{{ $product->product_name }}</a>
-                                 </div>
-                              </div>
-                           @endforeach
-                           <!-- <div class="content-box">
-                              <div class="image-cat">                        
-                                 <a href="#"><img src="image/catalog/small_slideshow/martha-dominguez.jpg" alt="image" /></a>
-                              </div>
-                              <div class="cat-title">
-                                 <a href="#">Martha</a>
-                              </div>
-                           </div> -->
-                        </div>
-                     </div>
-                  </div>
-                  <!-- end So categories -->
-               </div>
+    <!-- home-section 
+      ================================================== -->
+    <section id="home-section" class="paddings-fullscreen">
+      <div id="rev_slider_202_1_wrapper" class="rev_slider_wrapper fullscreen-container" data-alias="concept1" style="background-color:#fff;padding:0px;">
+        <!-- START REVOLUTION SLIDER 5.1.1RC fullscreen mode -->
+        <div id="rev_slider_202_1" class="rev_slider fullscreenbanner" style="display:none;" data-version="5.1.1RC">
+          <ul>
+            <!-- SLIDE  -->
+            <li data-index="rs-672" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="default"  data-thumb="{{ asset('front/upload/slider/1.jpg') }}" data-rotate="0" data-saveperformance="off" data-title="unique" data-description="">
+              <!-- MAIN IMAGE -->
+              <img src="{{ asset('front/upload/slider/1.jpg') }}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="5" class="rev-slidebg" data-no-retina>
+              <!-- LAYERS -->
+
+              <!-- LAYER NR. 1 -->
+              <div class="tp-caption Concept-Title tp-resizeme rs-parallaxlevel-2"
+                id="slide-672-layer-1"
+                data-x="['left','left','left','left']"
+                data-hoffset="['0','0','0','20']"
+                data-y="['bottom','bottom','bottom','bottom']"
+                data-fontsize="['23','20','17','14']"
+                data-lineheight="['36','32','28','24']"
+                data-voffset="['30','30','30','30']"
+                data-whitespace="nowrap"
+                data-transform_idle="o:1;"
+                data-transform_in="z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeInOut;"
+                data-transform_out="x:left(R);s:1000;e:Power3.easeIn;s:1000;e:Power3.easeIn;"
+                data-start="1400"
+                data-splitin="none"
+                data-splitout="none"
+                data-responsive_offset="on"
+                style="z-index: 7; white-space: nowrap;text-align:center;">&copy; Liz Washington Amazon Jungle
+              </div>
+
+              <!-- LAYER NR. 2 -->
+              <div class="tp-caption NotGeneric-SubTitle" 
+                id="slide-672-layer-2" 
+                data-x="['right','right','right','right']" data-hoffset="['0','0','0','20']" 
+                data-y="['bottom','bottom','bottom','bottom']" data-voffset="['30','30','30','30']"
+                data-fontsize="['13','12','12','11']"
+                data-lineheight="['26','24','20','20']"
+                data-width="none"
+                data-height="none"
+                data-whitespace="nowrap"
+                data-transform_idle="o:1;"
+           
+                data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;" 
+                data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
+                data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;" 
+                data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" 
+                data-start="1500" 
+                data-splitin="none" 
+                data-splitout="none" 
+                data-responsive_offset="on" 
+                style="z-index: 6; white-space: nowrap;"> <a href="#" class="like">120 <i class="fa fa-heart" aria-hidden="true"></i></a>
+              </div>
+
+            </li>
+            <!-- SLIDE  -->
+            <li data-index="rs-673" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="default"  data-thumb="{{ asset('front/upload/slider/2.jpg') }}" data-rotate="0" data-saveperformance="off" data-title="unique" data-description="">
+              <!-- MAIN IMAGE -->
+              <img src="{{ asset('front/upload/slider/2.jpg') }}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="5" class="rev-slidebg" data-no-retina>
+              <!-- LAYERS -->
+
+              <!-- LAYER NR. 1 -->
+              <div class="tp-caption Concept-Title tp-resizeme rs-parallaxlevel-2"
+                id="slide-673-layer-1"
+                data-x="['left','left','left','left']"
+                data-hoffset="['0','0','0','20']"
+                data-y="['bottom','bottom','bottom','bottom']"
+                data-fontsize="['23','20','17','14']"
+                data-lineheight="['36','32','28','24']"
+                data-voffset="['30','30','30','30']"
+                data-whitespace="nowrap"
+                data-transform_idle="o:1;"
+                data-transform_in="z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeInOut;"
+                data-transform_out="x:left(R);s:1000;e:Power3.easeIn;s:1000;e:Power3.easeIn;"
+                data-start="1400"
+                data-splitin="none"
+                data-splitout="none"
+                data-responsive_offset="on"
+                style="z-index: 7; white-space: nowrap;text-align:center;">&copy; Liz Washington Amazon Jungle
+              </div>
+
+              <!-- LAYER NR. 2 -->
+              <div class="tp-caption NotGeneric-SubTitle" 
+                id="slide-673-layer-2" 
+                data-x="['right','right','right','right']" data-hoffset="['0','0','0','20']" 
+                data-y="['bottom','bottom','bottom','bottom']" data-voffset="['30','30','30','30']"
+                data-fontsize="['13','12','12','11']"
+                data-lineheight="['26','24','20','20']"
+                data-width="none"
+                data-height="none"
+                data-whitespace="nowrap"
+                data-transform_idle="o:1;"
+           
+                data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;" 
+                data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
+                data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;" 
+                data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" 
+                data-start="1500" 
+                data-splitin="none" 
+                data-splitout="none" 
+                data-responsive_offset="on" 
+                style="z-index: 6; white-space: nowrap;"> <a href="#" class="like">120 <i class="fa fa-heart" aria-hidden="true"></i></a>
+              </div>
+
+            </li>
+
+            <!-- SLIDE  -->
+            <li data-index="rs-674" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="default"  data-thumb="{{ asset('front/upload/slider/3.jpg') }}" data-rotate="0" data-saveperformance="off" data-title="unique" data-description="">
+              <!-- MAIN IMAGE -->
+              <img src="{{ asset('front/upload/slider/3.jpg') }}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="5" class="rev-slidebg" data-no-retina>
+              <!-- LAYERS -->
+
+              <!-- LAYER NR. 1 -->
+              <div class="tp-caption Concept-Title tp-resizeme rs-parallaxlevel-2"
+                id="slide-674-layer-1"
+                data-x="['left','left','left','left']"
+                data-hoffset="['0','0','0','20']"
+                data-y="['bottom','bottom','bottom','bottom']"
+                data-fontsize="['23','20','17','14']"
+                data-lineheight="['36','32','28','24']"
+                data-voffset="['30','30','30','30']"
+                data-whitespace="nowrap"
+                data-transform_idle="o:1;"
+                data-transform_in="z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeInOut;"
+                data-transform_out="x:left(R);s:1000;e:Power3.easeIn;s:1000;e:Power3.easeIn;"
+                data-start="1400"
+                data-splitin="none"
+                data-splitout="none"
+                data-responsive_offset="on"
+                style="z-index: 7; white-space: nowrap;text-align:center;">&copy; Liz Washington Amazon Jungle
+              </div>
+
+              <!-- LAYER NR. 2 -->
+              <div class="tp-caption NotGeneric-SubTitle" 
+                id="slide-674-layer-2" 
+                data-x="['right','right','right','right']" data-hoffset="['0','0','0','20']" 
+                data-y="['bottom','bottom','bottom','bottom']" data-voffset="['30','30','30','30']"
+                data-fontsize="['13','12','12','11']"
+                data-lineheight="['26','24','20','20']"
+                data-width="none"
+                data-height="none"
+                data-whitespace="nowrap"
+                data-transform_idle="o:1;"
+           
+                data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;" 
+                data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
+                data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;" 
+                data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" 
+                data-start="1500" 
+                data-splitin="none" 
+                data-splitout="none" 
+                data-responsive_offset="on" 
+                style="z-index: 6; white-space: nowrap;"> <a href="#" class="like">120 <i class="fa fa-heart" aria-hidden="true"></i></a>
+              </div>
+
+            </li>
+
+            <!-- SLIDE  -->
+            <li data-index="rs-675" data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="default"  data-thumb="{{ asset('front/upload/slider/4.jpg') }}" data-rotate="0" data-saveperformance="off" data-title="unique" data-description="">
+              <!-- MAIN IMAGE -->
+              <img src="{{ asset('front/upload/slider/4.jpg') }}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="5" class="rev-slidebg" data-no-retina>
+              <!-- LAYERS -->
+
+              <!-- LAYER NR. 1 -->
+              <div class="tp-caption Concept-Title tp-resizeme rs-parallaxlevel-2"
+                id="slide-675-layer-1"
+                data-x="['left','left','left','left']"
+                data-hoffset="['0','0','0','20']"
+                data-y="['bottom','bottom','bottom','bottom']"
+                data-fontsize="['23','20','17','14']"
+                data-lineheight="['36','32','28','24']"
+                data-voffset="['30','30','30','30']"
+                data-whitespace="nowrap"
+                data-transform_idle="o:1;"
+                data-transform_in="z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeInOut;"
+                data-transform_out="x:left(R);s:1000;e:Power3.easeIn;s:1000;e:Power3.easeIn;"
+                data-start="1400"
+                data-splitin="none"
+                data-splitout="none"
+                data-responsive_offset="on"
+                style="z-index: 7; white-space: nowrap;text-align:center;">&copy; Liz Washington Amazon Jungle
+              </div>
+
+              <!-- LAYER NR. 2 -->
+              <div class="tp-caption NotGeneric-SubTitle" 
+                id="slide-675-layer-2" 
+                data-x="['right','right','right','right']" data-hoffset="['0','0','0','20']" 
+                data-y="['bottom','bottom','bottom','bottom']" data-voffset="['30','30','30','30']"
+                data-fontsize="['13','12','12','11']"
+                data-lineheight="['26','24','20','20']"
+                data-width="none"
+                data-height="none"
+                data-whitespace="nowrap"
+                data-transform_idle="o:1;"
+           
+                data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;" 
+                data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
+                data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;" 
+                data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" 
+                data-start="1500" 
+                data-splitin="none" 
+                data-splitout="none" 
+                data-responsive_offset="on" 
+                style="z-index: 6; white-space: nowrap;"> <a href="#" class="like">120 <i class="fa fa-heart" aria-hidden="true"></i></a>
+              </div>
+
+            </li>
+          </ul>
+          <div class="tp-bannertimer tp-bottom" style="visibility: hidden !important;"></div>
+        </div>
+        <!-- END REVOLUTION SLIDER -->
+        <a href="#" class="fullscreen-link">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </a>
             </div>
-         </div>
-         <!-- //Main Container -->
+    </section>
+    <!-- End home section -->
 
 
 @endsection
 
-@section('page-js-script')
-    <script type="text/javascript">@if($message = Session::get('success')) var success_msg = "{!! $message !!}"; @endif @if($message = Session::get('error')) var error_msg = "{!! $message !!}"; @endif</script>
-@endsection

@@ -3,11 +3,11 @@
 ***********************************-->
 <div class="nav-header">
     <div class="brand-logo">
-        <a href="index.html">
-            <b class="logo-abbr"><img src="{{asset('admin/images/logo.png')}}" alt=""> </b>
-            <span class="logo-compact"><img src="{{asset('admin/images/logo-compact.png')}}" alt=""></span>
+        <a href="{{ route('admin.dashboard') }}">
+            <b class="logo-abbr"><img src="{{asset('admin/images/admin-small-logo.jpg')}}" alt=""> </b>
+            <span class="logo-compact"><img src="{{asset('front/images/Logo/userImage.png')}}" alt=""></span>
             <span class="brand-title">
-                <img src="{{asset('front/images/Logo/userImage.png')}}" alt="">
+                <img src="{{asset('front/images/Logo/userImage.png')}}" class="userImage" alt="">
             </span>
         </a>
     </div>

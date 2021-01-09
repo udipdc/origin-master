@@ -1,0 +1,39 @@
+
+
+<?php $__env->startSection('content'); ?>
+
+<!-- contact-section 
+================================================== -->
+<section class="contact-section">
+    <div class="contact-box">
+        <div class="contact-title">
+            <h1>CONTACT</h1>
+            <ul class="social-icons">
+                <li><a class="facebook" href="#"><i class="fa fa-facebook-square"></i></a></li>
+                <li><a class="twitter" href="#"><i class="fa fa-twitter-square"></i></a></li>
+                <li><a class="instagram" href="#"><i class="fa fa-instagram"></i></a></li>
+                <li><a class="vimeo" href="#"><i class="fa fa-vimeo-square"></i></a></li>
+                <li><a class="youtube" href="#"><i class="fa fa-youtube-play"></i></a></li>
+            </ul>
+        </div>
+
+        <p class="desc">I have a passion for nature photography. I want to share with you my search for capturing a photo-of-a-lifetime that, when enlarged and hung on the wall, </p>
+
+        <p>
+            <span>Pratapbhai Bharad</span>
+            <span>pratap@gmail.com</span>
+            <span>+91 89059 87555</span>
+            <span>B-9/10, noble society, near eklavya public school, zanzarda road, junagadh</span>
+        </p>
+    </div>
+    <div class="image-holder">
+        <!-- <img src="<?php echo e(url('front/images/contactus.jpg')); ?>" alt=""> -->
+        <img src="<?php echo e(url('front/images/'.$userData->contact_image)); ?>" alt="$userData->contact_image">
+    </div>
+</section>
+<!-- End contact section -->
+
+<?php $__env->stopSection(); ?>
+
+
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\pratapbhai_bharad\resources\views/contact-us.blade.php ENDPATH**/ ?>

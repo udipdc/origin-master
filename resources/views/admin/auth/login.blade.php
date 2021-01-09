@@ -23,7 +23,7 @@
                     <div class="card login-form mb-0">
                         <div class="card-body pt-5">
                             <div class="text-center"> 
-                                <a href="{{ route('admin.login') }}"><img src="{{asset('front/images/Logo/userImage.png')}}" class="rounded-circle" alt=""></a>
+                                <a href="{{ route('admin.login') }}"><img src="{{asset('front/images/Logo/userImage.png')}}" class="rounded-circle userImage" alt=""></a>
                             </div>
                         
                             <form id="adminLoginForm" action="{{route('admin.login')}}" method="post" class="mt-5 mb-5">
@@ -42,23 +42,6 @@
                                         <span class="input-group-append">
                                             <span toggle="#password" class="input-group-text toggle-password"><i class="fa fa-eye"></i></span>
                                         </span>
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <div class="form-check">
-                                            <label class="form-check-label" for="remember">
-                                                <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                                                {{ __('Remember Me') }}
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        @if (Route::has('password.request'))
-                                            <a class="btn-link float-right" href="{{ route('admin.password.request') }}">
-                                                {{ __('Forgot Your Password?') }}
-                                            </a>
-                                        @endif
                                     </div>
                                 </div>
                                 <button class="btn login-form__btn submit w-100">Sign In</button>

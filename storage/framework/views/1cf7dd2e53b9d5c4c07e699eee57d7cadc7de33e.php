@@ -7,7 +7,9 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Pratapbhai Bharad</title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo e(asset('admin/images/favicon.png')); ?>">
+    <!-- <link rel="icon" type="image/png" sizes="16x16" href="<?php echo e(asset('admin/images/favicon.png')); ?>"> -->
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo e(asset('admin/images/admin-small-logo.jpg')); ?>">
+
     <!-- Pignose Calender -->
     <link href="<?php echo e(asset('plugins/pg-calendar/css/pignose.calendar.min.css')); ?>" rel="stylesheet">
     <!-- Chartist -->

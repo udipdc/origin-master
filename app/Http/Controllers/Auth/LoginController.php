@@ -56,32 +56,26 @@ class LoginController extends Controller
             'password' => 'required|min:8'
         ]);
 
-        // if($this->getUserData($request->username,['user'])){
-            if (Auth::guard('web')->attempt(['username' => $request->username, 'password' => $request->password,'status' => 1], $request->get('remember'))) {
+        if (Auth::guard('web')->attempt(['username' => $request->username, 'password' => $request->password,'status' => 1], $request->get('remember'))) {
 
-                $userData = User::select('id','firstname','lastname','email','username','is_default_password')->where('username', $request->username)->first();
-                if($userData->is_default_password=="0")
-                {
-                    //dd("user is_default_password 0");
-                    session()->flash('success', 'You Are Loggedin Sucessfully!');
-                    return redirect()->route('nurse.changePassword');
-                }
-                else
-                {
-                    //dd("user is_default_password 1");
-                    session()->flash('success', 'You Are Loggedin Sucessfully!');
-                    return redirect()->route('nurse.dashboard');
-                }
+            $userData = User::select('id','firstname','lastname','email','username','is_default_password')->where('username', $request->username)->first();
+            if($userData->is_default_password=="0")
+            {
+                //dd("user is_default_password 0");
+                session()->flash('success', 'You Are Loggedin Sucessfully!');
+                return redirect()->route('nurse.changePassword');
             }
-            else {
-                session()->flash('error', 'You have entered wrong credentials!!');
-                return redirect()->route('login');
+            else
+            {
+                //dd("user is_default_password 1");
+                session()->flash('success', 'You Are Loggedin Sucessfully!');
+                return redirect()->route('nurse.dashboard');
             }
-            // if (Auth::guard('admin')->attempt(['username' => $request->username, 'password' => $request->password,'status' => 0], $request->get('remember'))) { 
-            //     session()->flash('error', 'You account has been InActive/Suspended.!!');
-            //     return back()->withInput($request->only('username', 'remember'));
-            // }
-        // }
+        }
+        else {
+            session()->flash('error', 'You have entered wrong credentials!!');
+            return redirect()->route('login');
+        }
         session()->flash('error', 'You have entered wrong credentials!!');
         return back()->withInput($request->only('username', 'remember'));
     }
@@ -100,29 +94,14 @@ class LoginController extends Controller
             'password' => 'required|min:8'
         ]);
 
-        // if($this->getUserData($request->username,['superadmin','admin','bemember','housework'])){
-            if (Auth::guard('admin')->attempt(['username' => $request->username, 'password' => $request->password,'status' => 1], $request->get('remember'))) {
+        if (Auth::guard('admin')->attempt(['username' => $request->username, 'password' => $request->password,'status' => 1], $request->get('remember'))) {
 
-                session()->flash('success', 'You Are Loggedin Sucessfully!');
-                return redirect()->intended('admin/dashboard');
-            } 
-            // if(!$this->checkUserActive($request->username,$request->password)){
-            //     session()->flash('error', 'You account has been InActive/Suspended.!!');
-            //     return back()->withInput($request->only('username', 'remember'));
-            // }
-        // }
+            session()->flash('success', 'You Are Loggedin Sucessfully!');
+            return redirect()->intended('admin/dashboard');
+        } 
         session()->flash('error', 'You have entered wrong credentials!!');
         return back()->withInput($request->only('username', 'remember'));
     }
-
-    // public function getUserData($username,$roles)
-    // {
-    //     $checkUserData = \App\User::where('username',$username)->whereHas('roles',function($q) use($roles){
-    //         $q->whereIn('slug',$roles);
-    //     })->first();
-
-    //     return $checkUserData;
-    // }
 
     public function logout(Request $request) {
         // Get the session key for this user

@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
-  <g id="Tick_Mark" data-name="Tick Mark" transform="translate(-1017 -361)">
-    <circle id="Ellipse_1" data-name="Ellipse 1" cx="11" cy="11" r="11" transform="translate(1017 361)" fill="#fff"/>
-    <path id="Arrow" d="M59.475,4.1,63.492.086a.271.271,0,0,1,.4,0l1.431,1.431a.271.271,0,0,1,0,.4L62.932,4.3l4.847,5.818a.271.271,0,0,1,0,.4l-1.431,1.431a.271.271,0,0,1-.4,0L59.475,4.5a.272.272,0,0,1,0-.4Z" transform="translate(1022 435.865) rotate(-90)" fill="#266e7c"/>
-  </g>
-</svg>

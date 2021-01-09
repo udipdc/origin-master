@@ -9,6 +9,10 @@ use DataTables,Validator;
 use Illuminate\Support\Facades\Redirect;
 use File;
 
+use Image;
+use Auth;
+use App\User;
+
 class BlogController extends Controller
 {
     public function index()
@@ -55,7 +59,7 @@ class BlogController extends Controller
                             unlink($old_blog_image);
                         }
                     }
-                    $originalPath = public_path('blogs/');
+                    /*$originalPath = public_path('blogs/');
                     $resume = $request->blog_image;
                     $blog_image_name = "blog_".$resume->getClientOriginalName();
                     if(!empty($originalPath)){
@@ -63,6 +67,20 @@ class BlogController extends Controller
                             mkdir($originalPath, 0755, true);
                         }
                         copy($resume->getRealPath(), public_path('blogs/'.$blog_image_name));
+                    }*/
+
+                    $originalPath = public_path('blogs/');
+                    $image = $request->file('blog_image');
+                    $img = Image::make($image->path());
+                    $blog_image_name = "blog_".$image->getClientOriginalName();
+                    if(!empty($originalPath))
+                    {
+                        if(!is_dir($originalPath))
+                        {
+                            mkdir($originalPath, 0755, true);
+                        }
+                        $img->resize(370, 278);
+                        $img->save(public_path('blogs/'.$blog_image_name));
                     }
                 }
 
@@ -131,7 +149,7 @@ class BlogController extends Controller
                             unlink($old_blog_image);
                         }
                     }
-                    $originalPath = public_path('blogs/');
+                    /*$originalPath = public_path('blogs/');
                     $blog = $request->blog_image;
                     $blog_image_name = "blog_".$blog->getClientOriginalName();
                     if(!empty($originalPath)){
@@ -139,6 +157,21 @@ class BlogController extends Controller
                             mkdir($originalPath, 0755, true);
                         }
                         copy($blog->getRealPath(), public_path('blogs/'.$blog_image_name));
+                    }
+                    Blog::where(['id' => $blogData->id])->update(['blog_image'=>$blog_image_name]);*/
+
+                    $originalPath = public_path('blogs/');
+                    $image = $request->file('blog_image');
+                    $img = Image::make($image->path());
+                    $blog_image_name = "blog_".$image->getClientOriginalName();
+                    if(!empty($originalPath))
+                    {
+                        if(!is_dir($originalPath))
+                        {
+                            mkdir($originalPath, 0755, true);
+                        }
+                        $img->resize(370, 278);
+                        $img->save(public_path('blogs/'.$blog_image_name));
                     }
                     Blog::where(['id' => $blogData->id])->update(['blog_image'=>$blog_image_name]);
                 }
@@ -181,9 +214,20 @@ class BlogController extends Controller
 
     public function delete(Blog $blog)
     {
+        /*$id = $_POST['id'];
+        $blog = Blog::find($id);
+        $blog->delete();*/
         $id = $_POST['id'];
         $blog = Blog::find($id);
-        $blog->delete();
+        if(!empty($blog->id))
+        {
+            $image_path = public_path('blogs/'.$blog->blog_image);
+            if(File::exists($image_path))
+            {
+                File::delete($image_path);
+            }
+            $deleteStatus = $blog->forceDelete();
+        }
     }
 
     public function blog_status_change()
@@ -234,5 +278,102 @@ class BlogController extends Controller
         })->rawColumns(['name', 'status', 'action'])
             ->make(true);
     }
+
+    /*start front contactUs image change.*/
+        public function ContactChange(Request $request)
+        {
+            //echo "ContactChange";exit();
+
+            $userData = User::where('id', Auth::user()->id)->first();
+            //echo "<pre>"; print_r($userData); exit();
+            return view('admin.admin_contact_page', compact('userData'));
+        }
+
+        public function contact_image_change(Request $request)
+        {
+            //echo "contact_image_change";exit();
+
+            $rules = array(
+                'contact_image' => 'mimes:jpg,jpeg,png,JPG,JPEG,PNG',
+            );
+            $messages = [
+                'contact_image.mimes' => 'Please select image format.(eg: jpg|jpeg|png|JPG|JPEG|PNG)',
+            ];
+            $validator = validator::make($request->all(), $rules,$messages);
+
+            if($validator->fails())
+            {
+                return Redirect::back()->withErrors($validator)->withInput();
+            }
+            else
+            {
+                try {
+                    \DB::beginTransaction();
+
+                    $userId = Auth::user()->id;
+                    //echo "<pre>"; print_r($userId); exit();
+
+                    $userData = User::find($userId);
+
+                    if(isset($request->contact_image) && !empty($request->contact_image))
+                    {
+                        if($request->old_contact_image != '' || $request->old_contact_image != null){
+                            $old_contact_image = public_path('front/images/'.$request->old_contact_image);
+                            if (File::exists($old_contact_image)) { 
+                                unlink($old_contact_image);
+                            }
+                        }
+                        $originalPath = public_path('front/images/');
+                        $image = $request->file('contact_image');
+                        $img = Image::make($image->path());
+                        $contact_image_name = $image->getClientOriginalName();
+                        if(!empty($originalPath))
+                        {
+                            if(!is_dir($originalPath))
+                            {
+                                mkdir($originalPath, 0755, true);
+                            }
+                            $img->resize(370, 278);
+                            $img->save(public_path('front/images/'.$contact_image_name));
+                        }
+                        User::where(['id' => $userId])->update(['contact_image'=>$contact_image_name]);
+                    }
+                    else
+                    {
+                        //dd("not available image");
+                        if($request->old_contact_image == '' || $request->old_contact_image == null)
+                        {
+                            if($userData->contact_image!= null)
+                            {
+                                $old_contact_image = public_path('front/images/'.$userData->contact_image);
+                                if(File::exists($old_contact_image))
+                                { 
+                                    unlink($old_contact_image);
+                                }
+                                User::where(['id' => $userId])->update(['contact_image'=>""]);
+                            }
+                        }
+                    }
+
+                    \DB::commit();
+                    return redirect('admin/blog/contact_change')->with('success', 'ContactUs Updated!');
+
+                } catch (\Illuminate\Database\QueryException $ex) {
+                    $msg = $ex->getMessage();
+                    if (isset($ex->errorInfo[2])) {
+                        $msg = $ex->errorInfo[2];
+                    }
+                    \DB::rollback();
+                    return Redirect::back()
+                    ->with('error', $msg);
+                } catch (Exception $ex) {
+                    $msg = $ex->getMessage();
+                    \DB::rollback();
+                    return Redirect::back()
+                    ->with('error', $msg);
+                }
+            }
+        }
+    /*end front contactUs image change.*/
 
 }
